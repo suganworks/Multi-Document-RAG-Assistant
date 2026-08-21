@@ -2,13 +2,13 @@
 app.py — Multi-Document RAG Assistant
 ======================================
 Final project integrating Labs 1–4:
-  Lab 1 → Document indexing with ChromaDB
-  Lab 2 → RAG Q&A with OpenAI
-  Lab 3 → Hybrid search (BM25 + vector) + metadata filtering
-  Lab 4 → Multi-document support (PDF, CSV, TXT)
+  Lab 1 -> Document indexing with ChromaDB
+  Lab 2 -> RAG Q&A with Groq LLM
+  Lab 3 -> Hybrid search (BM25 + vector) + metadata filtering
+  Lab 4 -> Multi-document support (PDF, CSV, TXT)
 
 Run with:
-    streamlit run app.py
+    python -m streamlit run app.py
 """
 
 import os
@@ -313,22 +313,22 @@ with st.sidebar:
     st.markdown("## 📚 RAG Assistant")
     st.markdown("<div class='section-header'>⚙️ Configuration</div>", unsafe_allow_html=True)
 
-    # OpenAI API key
-    api_key_env = os.getenv("OPENAI_API_KEY", "")
-    openai_api_key = st.text_input(
-        "OpenAI API Key",
+    # Groq API key
+    api_key_env = os.getenv("GROQ_API_KEY", "")
+    groq_api_key = st.text_input(
+        "Groq API Key",
         value=api_key_env,
         type="password",
-        placeholder="sk-...",
-        help="Your OpenAI API key. Set OPENAI_API_KEY in .env to auto-fill.",
+        placeholder="gsk_...",
+        help="Free Groq API key from console.groq.com. Set GROQ_API_KEY in .env to auto-fill.",
     )
 
     # Model selection
     model_choice = st.selectbox(
         "LLM Model",
-        ["gpt-4o-mini", "gpt-3.5-turbo", "gpt-4o"],
+        ["llama-3.1-8b-instant", "llama3-8b-8192", "mixtral-8x7b-32768", "gemma2-9b-it"],
         index=0,
-        help="gpt-4o-mini is fastest and cheapest. gpt-4o gives best quality.",
+        help="llama-3.1-8b-instant is fastest. mixtral-8x7b gives best quality.",
     )
 
     st.markdown("<div class='section-header'>📂 Document Upload</div>", unsafe_allow_html=True)
@@ -359,8 +359,8 @@ with st.sidebar:
 
     # ── Handle indexing ───────────────────────────────────────────────────────
     if index_btn:
-        if not openai_api_key:
-            st.error("Please enter your OpenAI API Key.")
+        if not groq_api_key:
+            st.error("Please enter your Groq API Key.")
         elif not uploaded_files:
             st.warning("Please upload at least one document first.")
         else:
@@ -379,13 +379,12 @@ with st.sidebar:
                     tmp.write(uploaded_file.read())
                     tmp_path = tmp.name
 
-                with st.spinner(f"Indexing {uploaded_file.name}…"):
+                with st.spinner(f"Indexing {uploaded_file.name}..."):
                     n_chunks, msg = index_document(
                         file_path=tmp_path,
                         filename=uploaded_file.name,
                         file_type=file_type,
                         product_category=product_category,
-                        openai_api_key=openai_api_key,
                     )
                     total_chunks += n_chunks
                     messages.append(msg)
@@ -423,10 +422,7 @@ with st.sidebar:
     # ── Database stats ────────────────────────────────────────────────────────
     st.markdown("<div class='section-header'>🗄️ Database Stats</div>", unsafe_allow_html=True)
 
-    if openai_api_key:
-        stats = get_db_stats(openai_api_key=openai_api_key)
-    else:
-        stats = {"chunk_count": 0, "documents": []}
+    stats = get_db_stats()
 
     st.markdown(f"""
     <div class='stats-card'>
@@ -501,7 +497,7 @@ with st.expander("📊 How this works — RAG Pipeline", expanded=False):
 2. Detect file type → correct LangChain loader
 3. Extract text & split into chunks
 4. Attach metadata (filename, page, category)
-5. Generate OpenAI embeddings
+5. Generate local embeddings (sentence-transformers)
 6. Store in persistent ChromaDB
         """)
     with col2:
@@ -512,7 +508,7 @@ with st.expander("📊 How this works — RAG Pipeline", expanded=False):
 3. BM25 keyword search on same corpus
 4. Combine with Reciprocal Rank Fusion
 5. Select Top-K relevant chunks
-6. Build context → send to OpenAI LLM
+6. Build context -> send to Groq LLM
 7. Return grounded answer + sources
         """)
 
@@ -550,8 +546,8 @@ with st.form(key="qa_form", clear_on_submit=True):
 
 # ── Process query ──────────────────────────────────────────────────────────────
 if submit_btn and user_question.strip():
-    if not openai_api_key:
-        st.error("❌ Please enter your OpenAI API Key in the sidebar.")
+    if not groq_api_key:
+        st.error("Please enter your Groq API Key in the sidebar.")
     elif stats["chunk_count"] == 0:
         st.warning("⚠️ No documents indexed yet. Please upload and index documents first.")
     else:
@@ -560,21 +556,20 @@ if submit_btn and user_question.strip():
         ft_filter = filter_filetype if filter_filetype != "All" else None
         dn_filter = filter_docname if filter_docname != "All" else None
 
-        with st.spinner("🔍 Retrieving relevant chunks…"):
+        with st.spinner("Retrieving relevant chunks..."):
             chunks = hybrid_retrieve(
                 query=user_question,
-                openai_api_key=openai_api_key,
                 top_k=top_k,
                 product_category=cat_filter,
                 file_type=ft_filter,
                 filename=dn_filter,
             )
 
-        with st.spinner("🤖 Generating answer with OpenAI…"):
+        with st.spinner("Generating answer with Groq..."):
             answer, sources = run_rag(
                 question=user_question,
                 chunks=chunks,
-                openai_api_key=openai_api_key,
+                groq_api_key=groq_api_key,
                 model=model_choice,
             )
 
@@ -644,8 +639,8 @@ elif not st.session_state.chat_history:
 st.markdown("<div class='fancy-divider'></div>", unsafe_allow_html=True)
 st.markdown(
     "<div style='text-align:center; color:#334155; font-size:0.75rem;'>"
-    "Multi-Document RAG Assistant · Labs 1–4 Integration · "
-    "Powered by LangChain · ChromaDB · OpenAI"
+    "Multi-Document RAG Assistant · Labs 1-4 Integration · "
+    "Powered by LangChain · ChromaDB · Groq · sentence-transformers"
     "</div>",
     unsafe_allow_html=True,
 )

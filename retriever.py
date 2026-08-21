@@ -4,24 +4,21 @@ retriever.py — Lab 2 + Lab 3 Integration
 Hybrid retrieval: semantic/vector search (ChromaDB) + keyword search (BM25).
 Results are combined using Reciprocal Rank Fusion (RRF).
 
-Also supports metadata filtering on:
+Embeddings: sentence-transformers (local, same model as document_processor)
+No API key required for retrieval.
+
+Metadata filtering supported on:
 - product_category
 - file_type
 - filename (document name)
-
-Fix: Embeddings are computed manually via OpenAI and passed as
-query_embeddings= to collection.query() — no ChromaDB EmbeddingFunction needed.
 """
 
 import logging
 from typing import List, Dict, Optional, Any
 
-# pyrefly: ignore [missing-import]
-from langchain_openai import OpenAIEmbeddings
 from rank_bm25 import BM25Okapi
-import chromadb
 
-from document_processor import get_chroma_client, get_collection
+from document_processor import get_chroma_client, get_collection, get_embedding_model
 
 logger = logging.getLogger(__name__)
 
@@ -35,10 +32,7 @@ def build_where_clause(
     file_type: Optional[str] = None,
     filename: Optional[str] = None,
 ) -> Optional[Dict]:
-    """
-    Build a ChromaDB metadata filter clause from user-selected filters.
-    Supports single or combined filters using $and.
-    """
+    """Build a ChromaDB metadata filter clause from user-selected filters."""
     conditions = []
 
     if product_category and product_category != "All":
@@ -67,10 +61,7 @@ def reciprocal_rank_fusion(
     vector_weight: float = 0.6,
     k: int = 60,
 ) -> Dict[str, float]:
-    """
-    Combine BM25 and vector ranked lists into a single hybrid score.
-    Uses weighted RRF: score = sum(weight_i / (k + rank_i)).
-    """
+    """Combine BM25 and vector ranked lists via weighted Reciprocal Rank Fusion."""
     scores: Dict[str, float] = {doc_id: 0.0 for doc_id in all_ids}
 
     for rank, doc_id in enumerate(bm25_ranking):
@@ -90,7 +81,6 @@ def reciprocal_rank_fusion(
 
 def hybrid_retrieve(
     query: str,
-    openai_api_key: str,
     top_k: int = 5,
     product_category: Optional[str] = None,
     file_type: Optional[str] = None,
@@ -98,8 +88,10 @@ def hybrid_retrieve(
 ) -> List[Dict[str, Any]]:
     """
     Perform hybrid retrieval combining:
-      1. ChromaDB vector/semantic search (using manually computed query embedding)
+      1. ChromaDB vector/semantic search (local sentence-transformer embedding)
       2. BM25 keyword search
+
+    No API key required — embeddings are computed locally.
 
     Returns top_k chunks with content and metadata.
     """
@@ -110,13 +102,10 @@ def hybrid_retrieve(
     if total_chunks == 0:
         return []
 
-    # ── Compute query embedding manually via OpenAI ───────────────────────────
+    # ── Compute query embedding locally ──────────────────────────────────────
     try:
-        embeddings_model = OpenAIEmbeddings(
-            model="text-embedding-3-small",
-            openai_api_key=openai_api_key,
-        )
-        query_vector = embeddings_model.embed_query(query)
+        model = get_embedding_model()
+        query_vector = model.encode(query, show_progress_bar=False).tolist()
     except Exception as e:
         logger.error(f"Failed to embed query: {e}")
         return []
@@ -124,10 +113,10 @@ def hybrid_retrieve(
     # Build metadata filter
     where_clause = build_where_clause(product_category, file_type, filename)
 
-    # ── Step 1: Vector search via ChromaDB (query_embeddings=) ───────────────
+    # ── Step 1: Vector search via ChromaDB ───────────────────────────────────
     n_vector = min(max(top_k * 4, 20), total_chunks)
     chroma_kwargs: Dict[str, Any] = dict(
-        query_embeddings=[query_vector],   # manually computed embedding
+        query_embeddings=[query_vector],
         n_results=n_vector,
         include=["metadatas", "distances", "documents"],
     )
@@ -151,11 +140,10 @@ def hybrid_retrieve(
         for doc_id, dist in zip(vector_ids, vector_distances)
     }
 
-    # Build lookup from vector results
     id_to_content: Dict[str, str] = dict(zip(vector_ids, vector_docs))
     id_to_meta: Dict[str, Dict] = dict(zip(vector_ids, vector_metas))
 
-    # ── Step 2: Fetch all chunks for BM25 (respecting metadata filter) ────────
+    # ── Step 2: Fetch all chunks for BM25 (respecting filter) ────────────────
     fetch_kwargs: Dict[str, Any] = dict(
         include=["documents", "metadatas"],
         limit=total_chunks,
@@ -173,7 +161,6 @@ def hybrid_retrieve(
     all_docs: List[str] = all_data["documents"]
     all_metas: List[Dict] = all_data["metadatas"]
 
-    # Populate lookup with any BM25 candidates not in vector results
     for doc_id, content, meta in zip(all_ids, all_docs, all_metas):
         if doc_id not in id_to_content:
             id_to_content[doc_id] = content
@@ -182,7 +169,7 @@ def hybrid_retrieve(
     if not all_ids:
         return []
 
-    # ── BM25 indexing ─────────────────────────────────────────────────────────
+    # ── BM25 keyword search ───────────────────────────────────────────────────
     tokenized_corpus = [doc.lower().split() for doc in all_docs]
     bm25 = BM25Okapi(tokenized_corpus)
     tokenized_query = query.lower().split()
@@ -216,7 +203,6 @@ def hybrid_retrieve(
         meta = id_to_meta.get(doc_id, {})
         if not content:
             continue
-
         results.append({
             "id": doc_id,
             "content": content,

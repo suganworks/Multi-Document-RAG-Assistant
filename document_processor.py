@@ -8,9 +8,11 @@ Supported formats:
 - CSV  → CSVLoader
 - TXT  → TextLoader
 
-Fix: Instead of wrapping LangChain embeddings in a ChromaDB EmbeddingFunction
-(which breaks in ChromaDB 1.5.x due to interface changes), we compute embeddings
-manually with OpenAI and pass them directly via embeddings= to collection.add().
+Embeddings: sentence-transformers (local, no API key needed)
+  Model: all-MiniLM-L6-v2 (384 dimensions, cached after first download)
+
+Each chunk is stored with metadata:
+  filename, file_type, page (PDFs), row (CSVs), source, product_category
 """
 
 import os
@@ -22,7 +24,7 @@ from langchain_community.document_loaders import PyPDFLoader, CSVLoader, TextLoa
 # pyrefly: ignore [missing-import]
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 # pyrefly: ignore [missing-import]
-from langchain_openai import OpenAIEmbeddings
+from sentence_transformers import SentenceTransformer
 import chromadb
 from chromadb import PersistentClient
 
@@ -35,6 +37,21 @@ CHROMA_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "chroma_db")
 COLLECTION_NAME = "multi_doc_rag"
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Cached embedding model (loaded once, reused for all calls)
+# ─────────────────────────────────────────────────────────────────────────────
+_embedding_model: SentenceTransformer = None
+
+
+def get_embedding_model() -> SentenceTransformer:
+    """Return the cached SentenceTransformer model (loads on first call)."""
+    global _embedding_model
+    if _embedding_model is None:
+        logger.info(f"Loading embedding model: {EMBEDDING_MODEL}")
+        _embedding_model = SentenceTransformer(EMBEDDING_MODEL)
+    return _embedding_model
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -50,7 +67,7 @@ def get_chroma_client() -> PersistentClient:
 def get_collection(client: PersistentClient):
     """
     Get or create the ChromaDB collection.
-    No embedding function is passed — embeddings are computed manually
+    No embedding function passed — embeddings are computed manually
     and provided directly to add() / query() calls.
     """
     return client.get_or_create_collection(name=COLLECTION_NAME)
@@ -86,9 +103,7 @@ def load_document(file_path: str, file_type: str):
 # ─────────────────────────────────────────────────────────────────────────────
 
 def split_documents(docs, file_type: str):
-    """
-    Split documents into chunks using RecursiveCharacterTextSplitter.
-    """
+    """Split documents into chunks using RecursiveCharacterTextSplitter."""
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
         chunk_overlap=CHUNK_OVERLAP,
@@ -104,10 +119,7 @@ def split_documents(docs, file_type: str):
 # ─────────────────────────────────────────────────────────────────────────────
 
 def enrich_metadata(chunks, filename: str, file_type: str, product_category: str = "General"):
-    """
-    Attach uniform metadata to each chunk:
-    filename, file_type, page (PDFs), row (CSVs), source, product_category
-    """
+    """Attach uniform metadata to each chunk."""
     for chunk in chunks:
         existing = chunk.metadata or {}
         page = existing.get("page", "N/A")
@@ -129,10 +141,7 @@ def enrich_metadata(chunks, filename: str, file_type: str, product_category: str
 # ─────────────────────────────────────────────────────────────────────────────
 
 def is_already_indexed(collection, filename: str) -> bool:
-    """
-    Check if a document with this filename already exists in ChromaDB.
-    Returns True if at least one chunk with this filename is found.
-    """
+    """Returns True if this filename is already in ChromaDB."""
     try:
         results = collection.get(
             where={"filename": {"$eq": filename}},
@@ -152,13 +161,12 @@ def index_document(
     filename: str,
     file_type: str,
     product_category: str = "General",
-    openai_api_key: str = "",
 ) -> Tuple[int, str]:
     """
     Full pipeline: load → split → enrich metadata → embed → store in ChromaDB.
 
-    Embeddings are computed manually via OpenAI and passed directly to
-    collection.add(embeddings=...) — no ChromaDB EmbeddingFunction needed.
+    Embeddings are computed locally using sentence-transformers (no API key).
+    Vectors are passed directly via embeddings= to collection.add().
 
     Returns:
         (chunks_added: int, message: str)
@@ -189,13 +197,10 @@ def index_document(
     metadatas = [c.metadata for c in chunks]
     ids = [f"{filename}__chunk_{i}" for i in range(len(chunks))]
 
-    # ── Compute embeddings manually via OpenAI ────────────────────────────────
+    # ── Compute embeddings locally (sentence-transformers) ────────────────────
     try:
-        embeddings_model = OpenAIEmbeddings(
-            model="text-embedding-3-small",
-            openai_api_key=openai_api_key,
-        )
-        vectors = embeddings_model.embed_documents(texts)
+        model = get_embedding_model()
+        vectors = model.encode(texts, show_progress_bar=False).tolist()
     except Exception as e:
         return 0, f"Failed to generate embeddings for '{filename}': {e}"
 
@@ -218,7 +223,7 @@ def index_document(
 # Stats helpers
 # ─────────────────────────────────────────────────────────────────────────────
 
-def get_db_stats(openai_api_key: str = "") -> Dict:
+def get_db_stats() -> Dict:
     """Return stats about the ChromaDB collection."""
     try:
         client = get_chroma_client()
