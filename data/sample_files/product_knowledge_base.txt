@@ -1,0 +1,297 @@
+PRODUCT KNOWLEDGE BASE
+======================
+Source: Lab 3 Sample Product Dataset
+Categories: Electronics, Clothing, Books, Sports, Home & Kitchen
+Total Products: 50
+
+================================================================
+ELECTRONICS
+================================================================
+
+Product: Sony WH-1000XM5 Wireless Headphones
+ID: E001 | Brand: Sony | Price Range: Premium | Rating: 4.8/5
+Description: Industry-leading noise canceling headphones with 30-hour battery life, crystal clear hands-free calling, and superb sound quality with LDAC support.
+Key Features: Active Noise Cancellation, 30-hour battery, LDAC support, hands-free calling
+
+Product: Apple AirPods Pro 2nd Generation
+ID: E002 | Brand: Apple | Price Range: Premium | Rating: 4.7/5
+Description: Active noise cancellation, adaptive transparency, and personalized spatial audio with dynamic head tracking for immersive listening.
+Key Features: ANC, Adaptive Transparency, Spatial Audio, Dynamic Head Tracking
+
+Product: Samsung Galaxy S24 Ultra Smartphone
+ID: E003 | Brand: Samsung | Price Range: Premium | Rating: 4.6/5
+Description: 200MP camera, built-in S Pen, Snapdragon 8 Gen 3 processor, and 5000mAh battery for the ultimate flagship Android experience.
+Key Features: 200MP camera, S Pen, Snapdragon 8 Gen 3, 5000mAh battery
+
+Product: Logitech MX Master 3S Wireless Mouse
+ID: E004 | Brand: Logitech | Price Range: Mid-Range | Rating: 4.8/5
+Description: Ultra-precise 8K DPI optical sensor, quiet clicks, 70-day battery life, and MagSpeed electromagnetic scrolling for productivity.
+Key Features: 8K DPI, MagSpeed scrolling, 70-day battery, quiet clicks
+
+Product: iPad Air 5th Generation
+ID: E005 | Brand: Apple | Price Range: Premium | Rating: 4.7/5
+Description: M1 chip, 10.9-inch Liquid Retina display, 5G connectivity, and all-day battery perfect for creative work and entertainment.
+Key Features: M1 chip, Liquid Retina, 5G, all-day battery
+
+Product: Anker PowerCore 26800 Portable Charger
+ID: E006 | Brand: Anker | Price Range: Budget | Rating: 4.6/5
+Description: Massive 26800mAh capacity power bank with three USB ports and PowerIQ technology for fast charging multiple devices simultaneously.
+Key Features: 26800mAh, 3 USB ports, PowerIQ fast charging
+
+Product: Dell 27-inch 4K USB-C Monitor
+ID: E007 | Brand: Dell | Price Range: Premium | Rating: 4.5/5
+Description: IPS panel with 98% DCI-P3 color coverage, USB-C 90W power delivery, and factory calibration ideal for photo and video editing.
+Key Features: 4K IPS, 98% DCI-P3, USB-C 90W, factory calibrated
+
+Product: Bose QuietComfort 45 Headphones
+ID: E008 | Brand: Bose | Price Range: Premium | Rating: 4.6/5
+Description: Legendary Bose noise cancellation in a lightweight design with 24-hour battery, TriPort acoustic architecture, and volume-optimized EQ.
+Key Features: Bose ANC, 24-hour battery, TriPort acoustic, lightweight
+
+Product: Kindle Paperwhite 11th Gen E-reader
+ID: E009 | Brand: Amazon | Price Range: Mid-Range | Rating: 4.7/5
+Description: 6.8-inch glare-free display, adjustable warm light, 10-week battery life, and waterproof design for reading anywhere.
+Key Features: 6.8-inch glare-free, warm light, 10-week battery, waterproof
+
+Product: GoPro HERO12 Black Action Camera
+ID: E010 | Brand: GoPro | Price Range: Premium | Rating: 4.5/5
+Description: 5.3K60 video, 27MP photos, HyperSmooth 6.0 stabilization, and 70-minute waterproof design for extreme adventure capture.
+Key Features: 5.3K video, 27MP, HyperSmooth 6.0, waterproof 70 minutes
+
+================================================================
+CLOTHING
+================================================================
+
+Product: Nike Air Max 270 Running Shoes
+ID: C001 | Brand: Nike | Price Range: Mid-Range | Rating: 4.5/5
+Description: Lightweight mesh upper with the largest Air heel unit yet for all-day comfort, ideal for running and casual everyday wear.
+Key Features: Air heel unit, mesh upper, lightweight, all-day comfort
+
+Product: Levi's 501 Original Fit Jeans
+ID: C002 | Brand: Levi's | Price Range: Mid-Range | Rating: 4.4/5
+Description: Iconic straight-leg denim with button fly, made from sturdy cotton denim that softens with every wear for timeless style.
+Key Features: Straight leg, button fly, 100% cotton, timeless design
+
+Product: Patagonia Better Sweater Fleece Jacket
+ID: C003 | Brand: Patagonia | Price Range: Premium | Rating: 4.7/5
+Description: 100% recycled polyester fleece with classic styling, zippered hand pockets and stealth chest pocket for outdoor adventures.
+Key Features: Recycled polyester, zippered pockets, outdoor styling, sustainable
+
+Product: Adidas Ultraboost 23 Running Shoes
+ID: C004 | Brand: Adidas | Price Range: Premium | Rating: 4.6/5
+Description: BOOST midsole energy return with Primeknit+ upper and Linear Energy Push system for a responsive running experience.
+Key Features: BOOST midsole, Primeknit+, Linear Energy Push, responsive
+
+Product: Hanes Men's Essentials T-Shirt Pack
+ID: C005 | Brand: Hanes | Price Range: Budget | Rating: 4.3/5
+Description: Tagless, pre-shrunk 100% cotton crew neck t-shirts with reinforced seams for long-lasting comfort in everyday wear.
+Key Features: Tagless, 100% cotton, pre-shrunk, crew neck
+
+Product: The North Face Thermoball Eco Jacket
+ID: C006 | Brand: The North Face | Price Range: Premium | Rating: 4.6/5
+Description: Warm synthetic insulation that performs even when wet, made with 100% recycled materials for sustainable outdoor performance.
+Key Features: Synthetic insulation, wet-weather performance, 100% recycled, sustainable
+
+Product: Under Armour HeatGear Compression Shorts
+ID: C007 | Brand: Under Armour | Price Range: Mid-Range | Rating: 4.4/5
+Description: Moisture-wicking fabric that regulates temperature, 4-way stretch construction moves in every direction for athletic training.
+Key Features: Moisture-wicking, temperature regulation, 4-way stretch, compression
+
+Product: Carhartt Work-Flex Straight Fit Jean
+ID: C008 | Brand: Carhartt | Price Range: Mid-Range | Rating: 4.5/5
+Description: Ring-spun denim with CORDURA nylon reinforcement for rugged durability, designed for hardworking professionals.
+Key Features: CORDURA reinforcement, ring-spun denim, rugged durability, work-grade
+
+Product: Columbia Omni-Heat Thermal Reflective Jacket
+ID: C009 | Brand: Columbia | Price Range: Mid-Range | Rating: 4.5/5
+Description: Innovative reflective dot thermal lining retains body heat while remaining breathable for cold weather outdoor activities.
+Key Features: Omni-Heat reflective, heat retention, breathable, cold weather
+
+Product: New Balance 990v6 Lifestyle Sneakers
+ID: C010 | Brand: New Balance | Price Range: Premium | Rating: 4.6/5
+Description: Made in USA premium pigskin leather and mesh upper with ENCAP midsole cushioning for exceptional all-day comfort.
+Key Features: Made in USA, pigskin leather, ENCAP cushioning, lifestyle
+
+================================================================
+BOOKS
+================================================================
+
+Product: Atomic Habits by James Clear
+ID: B001 | Brand: Avery Publishing | Price Range: Budget | Rating: 4.8/5
+Description: Proven framework for improving every day using tiny changes that compound into remarkable results through habit stacking and environment design.
+Key Features: Habit stacking, compound growth, environment design, behavioral change
+
+Product: Deep Work by Cal Newport
+ID: B002 | Brand: Grand Central Publishing | Price Range: Budget | Rating: 4.7/5
+Description: Rules for focused success in a distracted world, teaching the skill of concentrating without distraction on cognitively demanding tasks.
+Key Features: Focus strategies, distraction-free work, cognitive performance, productivity
+
+Product: The Pragmatic Programmer 20th Anniversary Edition
+ID: B003 | Brand: Addison-Wesley | Price Range: Mid-Range | Rating: 4.7/5
+Description: Classic guide to software craftsmanship covering DRY principles, orthogonality, tracer bullets, and career development for developers.
+Key Features: DRY principles, software craftsmanship, developer career, programming best practices
+
+Product: Dune by Frank Herbert
+ID: B004 | Brand: Ace Books | Price Range: Budget | Rating: 4.8/5
+Description: Epic sci-fi saga set on the desert planet Arrakis, exploring politics, religion, ecology, and human potential through complex characters.
+Key Features: Science fiction, Arrakis, political intrigue, epic world-building
+
+Product: Sapiens: A Brief History of Humankind
+ID: B005 | Brand: Harper Perennial | Price Range: Budget | Rating: 4.6/5
+Description: Yuval Noah Harari's groundbreaking narrative of humanity's journey from the Stone Age to the Silicon Age covering cognitive, agricultural, and scientific revolutions.
+Key Features: Human history, cognitive revolution, agricultural revolution, macrohistory
+
+Product: Clean Code by Robert C. Martin
+ID: B006 | Brand: Prentice Hall | Price Range: Mid-Range | Rating: 4.5/5
+Description: A handbook of agile software craftsmanship with practical examples showing how to write readable, maintainable, and efficient code.
+Key Features: Clean code principles, readability, maintainability, agile, refactoring
+
+Product: The Psychology of Money by Morgan Housel
+ID: B007 | Brand: Harriman House | Price Range: Budget | Rating: 4.7/5
+Description: Timeless lessons on wealth, greed, and happiness exploring how people think about money and make financial decisions driven by emotions.
+Key Features: Personal finance, behavioral economics, wealth mindset, financial decisions
+
+Product: Designing Data-Intensive Applications
+ID: B008 | Brand: O'Reilly Media | Price Range: Mid-Range | Rating: 4.8/5
+Description: Martin Kleppmann's comprehensive guide to building reliable, scalable, and maintainable distributed systems and data infrastructure.
+Key Features: Distributed systems, scalability, data pipelines, reliability
+
+Product: The Hitchhiker's Guide to the Galaxy
+ID: B009 | Brand: Del Rey | Price Range: Budget | Rating: 4.7/5
+Description: Douglas Adams' beloved comedic science fiction novel following Arthur Dent through absurd intergalactic adventures after Earth's demolition.
+Key Features: Comedy, sci-fi, intergalactic adventure, British humor
+
+Product: Introduction to Machine Learning with Python
+ID: B010 | Brand: O'Reilly Media | Price Range: Mid-Range | Rating: 4.5/5
+Description: Practical guide by Andreas Muller covering scikit-learn, core ML algorithms, and best practices for data science practitioners.
+Key Features: Machine learning, scikit-learn, Python, data science, algorithms
+
+================================================================
+SPORTS
+================================================================
+
+Product: Bowflex SelectTech 552 Adjustable Dumbbells
+ID: S001 | Brand: Bowflex | Price Range: Premium | Rating: 4.8/5
+Description: Replace 15 sets of weights with one dial-adjustable dumbbell pair from 5 to 52.5 lbs, perfect for home gym strength training.
+Key Features: 5-52.5 lbs adjustable, dial system, replaces 15 sets, home gym
+
+Product: Manduka PRO Yoga Mat
+ID: S002 | Brand: Manduka | Price Range: Premium | Rating: 4.7/5
+Description: 6mm ultra-dense cushioning, closed-cell surface prevents bacteria and moisture absorption, for a lifetime of yoga practice.
+Key Features: 6mm cushioning, closed-cell surface, antimicrobial, lifetime guarantee
+
+Product: Wilson Evolution Indoor Basketball
+ID: S003 | Brand: Wilson | Price Range: Mid-Range | Rating: 4.8/5
+Description: Microfiber composite leather cover with exclusive Cushion Core technology for consistent feel and superior grip in indoor play.
+Key Features: Microfiber leather, Cushion Core, indoor basketball, superior grip
+
+Product: Trek FX 3 Disc Hybrid Bicycle
+ID: S004 | Brand: Trek | Price Range: Premium | Rating: 4.6/5
+Description: Versatile performance bike with hydraulic disc brakes, Alpha Gold aluminum frame, and puncture-resistant tires for urban commuting.
+Key Features: Hydraulic disc brakes, aluminum frame, puncture-resistant, urban commuting
+
+Product: TRX ALL-IN-ONE Suspension Trainer
+ID: S005 | Brand: TRX | Price Range: Mid-Range | Rating: 4.6/5
+Description: Bodyweight suspension training system for full-body workouts anywhere, used by military, pro athletes, and fitness enthusiasts.
+Key Features: Suspension training, full-body, portable, military-grade, anywhere
+
+Product: Garmin Forerunner 265 GPS Running Watch
+ID: S006 | Brand: Garmin | Price Range: Premium | Rating: 4.6/5
+Description: AMOLED display, advanced running dynamics, daily training readiness scores, and HRV status for optimized performance.
+Key Features: AMOLED, GPS, running dynamics, HRV monitoring, training readiness
+
+Product: Callaway Strata Golf Complete Set
+ID: S007 | Brand: Callaway | Price Range: Mid-Range | Rating: 4.5/5
+Description: 12-piece set including driver, fairway wood, hybrids, irons, and putter for beginner to intermediate golfers seeking distance and forgiveness.
+Key Features: 12-piece set, driver, irons, putter, beginner-friendly, forgiving
+
+Product: Hydro Flask 32oz Wide Mouth Water Bottle
+ID: S008 | Brand: Hydro Flask | Price Range: Mid-Range | Rating: 4.8/5
+Description: TempShield double-wall vacuum insulation keeps beverages cold 24 hours, hot 12 hours, with a leakproof lid for active lifestyles.
+Key Features: TempShield insulation, cold 24h, hot 12h, leakproof, BPA-free
+
+Product: Resistance Band Set with Handles
+ID: S009 | Brand: Fit Simplify | Price Range: Budget | Rating: 4.5/5
+Description: 5 resistance levels from 10-50 lbs with foam handles, door anchor, and ankle straps for versatile home strength training.
+Key Features: 5 resistance levels, foam handles, door anchor, ankle straps, portable
+
+Product: Osprey Atmos AG 65 Backpacking Pack
+ID: S010 | Brand: Osprey | Price Range: Premium | Rating: 4.8/5
+Description: Anti-Gravity suspension system, LightWire peripheral frame, and adjustable harness for ultralight comfort on multi-day hikes.
+Key Features: Anti-Gravity suspension, LightWire frame, adjustable harness, 65L capacity
+
+================================================================
+HOME & KITCHEN
+================================================================
+
+Product: Instant Pot Duo 7-in-1 Electric Pressure Cooker
+ID: H001 | Brand: Instant Pot | Price Range: Mid-Range | Rating: 4.7/5
+Description: Pressure cooker, slow cooker, rice cooker, steamer, saute, yogurt maker, and warmer in one appliance with 13 customizable programs.
+Key Features: 7-in-1 functions, pressure cooker, 13 programs, multi-cooker
+
+Product: Dyson V15 Detect Cordless Vacuum
+ID: H002 | Brand: Dyson | Price Range: Premium | Rating: 4.7/5
+Description: Laser dust detection reveals invisible dust, 60-minute runtime, HEPA filtration captures 99.97% of particles for deep whole-home cleaning.
+Key Features: Laser detection, 60-min runtime, HEPA filter, cordless
+
+Product: KitchenAid Artisan Stand Mixer 5-Qt
+ID: H003 | Brand: KitchenAid | Price Range: Premium | Rating: 4.8/5
+Description: 10-speed motor with 59 touchpoints in the bowl, compatible with 80+ attachments including pasta maker, meat grinder, and ice cream maker.
+Key Features: 10-speed, 5-qt bowl, 80+ attachments, pasta maker compatible
+
+Product: Philips Hue Smart LED Starter Kit
+ID: H004 | Brand: Philips | Price Range: Mid-Range | Rating: 4.6/5
+Description: 16 million colors, works with Alexa, Google, and Apple HomeKit, schedule lighting scenes and control from anywhere with the Hue app.
+Key Features: 16M colors, Alexa/Google/HomeKit, scheduling, remote control
+
+Product: Vitamix 5200 Blender Professional Grade
+ID: H005 | Brand: Vitamix | Price Range: Premium | Rating: 4.8/5
+Description: 2+ HP motor, aircraft-grade stainless steel blades, and variable speed control for smoothies, soups, nut butters, and more.
+Key Features: 2HP+ motor, stainless blades, variable speed, professional grade
+
+Product: Nespresso Vertuo Next Coffee Machine
+ID: H006 | Brand: Nespresso | Price Range: Mid-Range | Rating: 4.6/5
+Description: Centrifusion extraction technology reads barcodes for perfect brew parameters, makes Espresso to Alto coffees from 5 sizes with rich crema.
+Key Features: Centrifusion, barcode reading, 5 cup sizes, rich crema
+
+Product: All-Clad D3 Stainless 10-Piece Cookware Set
+ID: H007 | Brand: All-Clad | Price Range: Premium | Rating: 4.7/5
+Description: Tri-ply construction with aluminum core for even heat distribution, oven safe to 600F, dishwasher safe professional-grade cookware.
+Key Features: Tri-ply, aluminum core, oven safe 600F, dishwasher safe
+
+Product: iRobot Roomba j7+ Self-Emptying Robot Vacuum
+ID: H008 | Brand: iRobot | Price Range: Premium | Rating: 4.5/5
+Description: Smart mapping with PrecisionVision navigation, avoids obstacles, self-empties for up to 60 days, and learns your home over time.
+Key Features: Smart mapping, PrecisionVision, self-emptying 60 days, obstacle avoidance
+
+Product: Weber Spirit II E-310 Gas Grill
+ID: H009 | Brand: Weber | Price Range: Premium | Rating: 4.6/5
+Description: Three burners with 529 sq in of cooking area, GS4 grilling system with infinity ignition, and iGrill 3 compatible for outdoor grilling.
+Key Features: 3 burners, 529 sq in, GS4 system, infinity ignition, iGrill compatible
+
+Product: Cuisinart 14-Cup Food Processor
+ID: H010 | Brand: Cuisinart | Price Range: Mid-Range | Rating: 4.5/5
+Description: 720W motor, extra-large feed tube, touchpad controls, and includes chopping blade, slicing, and shredding discs for effortless food prep.
+Key Features: 720W, 14-cup, extra-large feed tube, chopping/slicing/shredding discs
+
+================================================================
+FREQUENTLY ASKED QUESTIONS
+================================================================
+
+Q: Which Electronics products have the best battery life?
+A: The Sony WH-1000XM5 headphones offer 30-hour battery life (Premium, $$$). The Kindle Paperwhite offers 10-week battery life (Mid-Range). The Logitech MX Master 3S mouse lasts 70 days (Mid-Range).
+
+Q: Which products are Budget-priced?
+A: Budget Electronics: Anker PowerCore 26800. Budget Clothing: Hanes T-Shirt Pack. Budget Books: Atomic Habits, Deep Work, Dune, Sapiens, Psychology of Money, Hitchhiker's Guide. Budget Sports: Resistance Band Set.
+
+Q: Which products have the highest ratings (4.8)?
+A: Sony WH-1000XM5 (Electronics 4.8), Logitech MX Master 3S (Electronics 4.8), Atomic Habits (Books 4.8), Dune (Books 4.8), Designing Data-Intensive Applications (Books 4.8), Bowflex SelectTech 552 (Sports 4.8), Wilson Evolution Basketball (Sports 4.8), Hydro Flask Water Bottle (Sports 4.8), Osprey Atmos AG 65 (Sports 4.8), KitchenAid Stand Mixer (Home 4.8), Vitamix Blender (Home 4.8).
+
+Q: Which Apple products are available?
+A: Apple AirPods Pro 2nd Generation (Electronics, Premium, 4.7), iPad Air 5th Generation (Electronics, Premium, 4.7), and Kindle Paperwhite by Amazon (Electronics, Mid-Range, 4.7).
+
+Q: What Sports equipment is available for home gym workouts?
+A: Bowflex SelectTech 552 Adjustable Dumbbells (Premium), TRX ALL-IN-ONE Suspension Trainer (Mid-Range), and Resistance Band Set (Budget) are all excellent home gym options.
+
+Q: Which Home & Kitchen products support smart home integration?
+A: Philips Hue Smart LED Starter Kit supports Alexa, Google, and Apple HomeKit. iRobot Roomba j7+ features smart home mapping and can be controlled remotely.

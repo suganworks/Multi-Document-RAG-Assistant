@@ -1,0 +1,51 @@
+id,name,description,category,brand,price_range,rating
+E001,Sony WH-1000XM5 Wireless Headphones,Industry-leading noise canceling headphones with 30-hour battery life crystal clear hands-free calling and superb sound quality with LDAC support.,Electronics,Sony,Premium,4.8
+E002,Apple AirPods Pro 2nd Generation,Active noise cancellation adaptive transparency and personalized spatial audio with dynamic head tracking for immersive listening.,Electronics,Apple,Premium,4.7
+E003,Samsung Galaxy S24 Ultra Smartphone,200MP camera built-in S Pen Snapdragon 8 Gen 3 processor and 5000mAh battery for the ultimate flagship Android experience.,Electronics,Samsung,Premium,4.6
+E004,Logitech MX Master 3S Wireless Mouse,Ultra-precise 8K DPI optical sensor quiet clicks 70-day battery life and MagSpeed electromagnetic scrolling for productivity.,Electronics,Logitech,Mid-Range,4.8
+E005,iPad Air 5th Generation,M1 chip 10.9-inch Liquid Retina display 5G connectivity and all-day battery perfect for creative work and entertainment.,Electronics,Apple,Premium,4.7
+E006,Anker PowerCore 26800 Portable Charger,Massive 26800mAh capacity power bank with three USB ports and PowerIQ technology for fast charging multiple devices simultaneously.,Electronics,Anker,Budget,4.6
+E007,Dell 27-inch 4K USB-C Monitor,IPS panel with 98% DCI-P3 color coverage USB-C 90W power delivery and factory calibration ideal for photo and video editing.,Electronics,Dell,Premium,4.5
+E008,Bose QuietComfort 45 Headphones,Legendary Bose noise cancellation in a lightweight design with 24-hour battery TriPort acoustic architecture and volume-optimized EQ.,Electronics,Bose,Premium,4.6
+E009,Kindle Paperwhite 11th Gen E-reader,6.8-inch glare-free display adjustable warm light 10-week battery life and waterproof design for reading anywhere.,Electronics,Amazon,Mid-Range,4.7
+E010,GoPro HERO12 Black Action Camera,5.3K60 video 27MP photos HyperSmooth 6.0 stabilization and 70-minute waterproof design for extreme adventure capture.,Electronics,GoPro,Premium,4.5
+C001,Nike Air Max 270 Running Shoes,Lightweight mesh upper with the largest Air heel unit yet for all-day comfort ideal for running and casual everyday wear.,Clothing,Nike,Mid-Range,4.5
+C002,Levi's 501 Original Fit Jeans,Iconic straight-leg denim with button fly made from sturdy cotton denim that softens with every wear for timeless style.,Clothing,Levi's,Mid-Range,4.4
+C003,Patagonia Better Sweater Fleece Jacket,100% recycled polyester fleece with classic styling zippered hand pockets and stealth chest pocket for outdoor adventures.,Clothing,Patagonia,Premium,4.7
+C004,Adidas Ultraboost 23 Running Shoes,BOOST midsole energy return with Primeknit+ upper and Linear Energy Push system for a responsive running experience.,Clothing,Adidas,Premium,4.6
+C005,Hanes Men's Essentials T-Shirt Pack,Tagless pre-shrunk 100% cotton crew neck t-shirts with reinforced seams for long-lasting comfort in everyday wear.,Clothing,Hanes,Budget,4.3
+C006,The North Face Thermoball Eco Jacket,Warm synthetic insulation that performs even when wet made with 100% recycled materials for sustainable outdoor performance.,Clothing,The North Face,Premium,4.6
+C007,Under Armour HeatGear Compression Shorts,Moisture-wicking fabric that regulates temperature 4-way stretch construction moves in every direction for athletic training.,Clothing,Under Armour,Mid-Range,4.4
+C008,Carhartt Work-Flex Straight Fit Jean,Ring-spun denim with CORDURA nylon reinforcement for rugged durability designed for hardworking professionals.,Clothing,Carhartt,Mid-Range,4.5
+C009,Columbia Omni-Heat Thermal Reflective Jacket,Innovative reflective dot thermal lining retains body heat while remaining breathable for cold weather outdoor activities.,Clothing,Columbia,Mid-Range,4.5
+C010,New Balance 990v6 Lifestyle Sneakers,Made in USA premium pigskin leather and mesh upper with ENCAP midsole cushioning for exceptional all-day comfort.,Clothing,New Balance,Premium,4.6
+B001,Atomic Habits by James Clear,Proven framework for improving every day using tiny changes that compound into remarkable results through habit stacking and environment design.,Books,Avery Publishing,Budget,4.8
+B002,Deep Work by Cal Newport,Rules for focused success in a distracted world teaching the skill of concentrating without distraction on cognitively demanding tasks.,Books,Grand Central Publishing,Budget,4.7
+B003,The Pragmatic Programmer 20th Anniversary Edition,Classic guide to software craftsmanship covering DRY principles orthogonality tracer bullets and career development for developers.,Books,Addison-Wesley,Mid-Range,4.7
+B004,Dune by Frank Herbert,Epic sci-fi saga set on the desert planet Arrakis exploring politics religion ecology and human potential through complex characters.,Books,Ace Books,Budget,4.8
+B005,Sapiens: A Brief History of Humankind,Yuval Noah Harari's groundbreaking narrative of humanity's journey from the Stone Age to the Silicon Age covering cognitive agricultural and scientific revolutions.,Books,Harper Perennial,Budget,4.6
+B006,Clean Code by Robert C. Martin,A handbook of agile software craftsmanship with practical examples showing how to write readable maintainable and efficient code.,Books,Prentice Hall,Mid-Range,4.5
+B007,The Psychology of Money by Morgan Housel,Timeless lessons on wealth greed and happiness exploring how people think about money and make financial decisions driven by emotions.,Books,Harriman House,Budget,4.7
+B008,Designing Data-Intensive Applications,Martin Kleppmann's comprehensive guide to building reliable scalable and maintainable distributed systems and data infrastructure.,Books,O'Reilly Media,Mid-Range,4.8
+B009,The Hitchhiker's Guide to the Galaxy,Douglas Adams' beloved comedic science fiction novel following Arthur Dent through absurd intergalactic adventures after Earth's demolition.,Books,Del Rey,Budget,4.7
+B010,Introduction to Machine Learning with Python,Practical guide by Andreas Muller covering scikit-learn core ML algorithms and best practices for data science practitioners.,Books,O'Reilly Media,Mid-Range,4.5
+S001,Bowflex SelectTech 552 Adjustable Dumbbells,Replace 15 sets of weights with one dial-adjustable dumbbell pair from 5 to 52.5 lbs perfect for home gym strength training.,Sports,Bowflex,Premium,4.8
+S002,Manduka PRO Yoga Mat,6mm ultra-dense cushioning closed-cell surface prevents bacteria and moisture absorption for a lifetime of yoga practice.,Sports,Manduka,Premium,4.7
+S003,Wilson Evolution Indoor Basketball,Microfiber composite leather cover with exclusive Cushion Core technology for consistent feel and superior grip in indoor play.,Sports,Wilson,Mid-Range,4.8
+S004,Trek FX 3 Disc Hybrid Bicycle,Versatile performance bike with hydraulic disc brakes Alpha Gold aluminum frame and puncture-resistant tires for urban commuting.,Sports,Trek,Premium,4.6
+S005,TRX ALL-IN-ONE Suspension Trainer,Bodyweight suspension training system for full-body workouts anywhere used by military pro athletes and fitness enthusiasts.,Sports,TRX,Mid-Range,4.6
+S006,Garmin Forerunner 265 GPS Running Watch,AMOLED display advanced running dynamics daily training readiness scores and HRV status for optimized performance.,Sports,Garmin,Premium,4.6
+S007,Callaway Strata Golf Complete Set,12-piece set including driver fairway wood hybrids irons and putter for beginner to intermediate golfers seeking distance and forgiveness.,Sports,Callaway,Mid-Range,4.5
+S008,Hydro Flask 32oz Wide Mouth Water Bottle,TempShield double-wall vacuum insulation keeps beverages cold 24 hours hot 12 hours with a leakproof lid for active lifestyles.,Sports,Hydro Flask,Mid-Range,4.8
+S009,Resistance Band Set with Handles,5 resistance levels from 10-50 lbs with foam handles door anchor and ankle straps for versatile home strength training.,Sports,Fit Simplify,Budget,4.5
+S010,Osprey Atmos AG 65 Backpacking Pack,Anti-Gravity suspension system LightWire peripheral frame and adjustable harness for ultralight comfort on multi-day hikes.,Sports,Osprey,Premium,4.8
+H001,Instant Pot Duo 7-in-1 Electric Pressure Cooker,Pressure cooker slow cooker rice cooker steamer saute yogurt maker and warmer in one appliance with 13 customizable programs.,Home & Kitchen,Instant Pot,Mid-Range,4.7
+H002,Dyson V15 Detect Cordless Vacuum,Laser dust detection reveals invisible dust 60-minute runtime HEPA filtration captures 99.97% of particles for deep whole-home cleaning.,Home & Kitchen,Dyson,Premium,4.7
+H003,KitchenAid Artisan Stand Mixer 5-Qt,10-speed motor with 59 touchpoints in the bowl compatible with 80+ attachments including pasta maker meat grinder and ice cream maker.,Home & Kitchen,KitchenAid,Premium,4.8
+H004,Philips Hue Smart LED Starter Kit,16 million colors works with Alexa Google and Apple HomeKit schedule lighting scenes and control from anywhere with the Hue app.,Home & Kitchen,Philips,Mid-Range,4.6
+H005,Vitamix 5200 Blender Professional Grade,2+ HP motor aircraft-grade stainless steel blades and variable speed control for smoothies soups nut butters and more.,Home & Kitchen,Vitamix,Premium,4.8
+H006,Nespresso Vertuo Next Coffee Machine,Centrifusion extraction technology reads barcodes for perfect brew parameters makes Espresso to Alto coffees from 5 sizes with rich crema.,Home & Kitchen,Nespresso,Mid-Range,4.6
+H007,All-Clad D3 Stainless 10-Piece Cookware Set,Tri-ply construction with aluminum core for even heat distribution oven safe to 600F dishwasher safe professional-grade cookware.,Home & Kitchen,All-Clad,Premium,4.7
+H008,iRobot Roomba j7+ Self-Emptying Robot Vacuum,Smart mapping with PrecisionVision navigation avoids obstacles self-empties for up to 60 days and learns your home over time.,Home & Kitchen,iRobot,Premium,4.5
+H009,Weber Spirit II E-310 Gas Grill,Three burners with 529 sq in of cooking area GS4 grilling system with infinity ignition and iGrill 3 compatible for outdoor grilling.,Home & Kitchen,Weber,Premium,4.6
+H010,Cuisinart 14-Cup Food Processor,720W motor extra-large feed tube touchpad controls and includes chopping blade slicing and shredding discs for effortless food prep.,Home & Kitchen,Cuisinart,Mid-Range,4.5

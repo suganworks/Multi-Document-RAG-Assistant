@@ -1,0 +1,30 @@
+# Environment variables — NEVER commit this
+.env
+
+# ChromaDB persistent storage (large binary files, rebuilt at runtime)
+data/chroma_db/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Streamlit cache
+.streamlit/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,2 @@
+# This file exists to ensure the data/ directory is tracked by git.
+# ChromaDB will create the chroma_db/ subdirectory automatically when the app runs.
