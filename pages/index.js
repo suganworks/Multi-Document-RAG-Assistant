@@ -90,11 +90,20 @@ function chunkText(text, chunkSize = 800, overlap = 150) {
 // Constants
 // ─────────────────────────────────────────────────────────────────────────────
 const FILE_ICONS = { pdf: '📄', csv: '📊', txt: '📝' };
+// All known Groq models — pick whichever your account has access to
 const GROQ_MODELS = [
-  'llama-3.1-8b-instant',
-  'llama3-8b-8192',
   'mixtral-8x7b-32768',
+  'llama3-8b-8192',
+  'llama3-70b-8192',
+  'llama-3.1-8b-instant',
+  'llama-3.3-70b-versatile',
+  'llama-3.2-3b-preview',
+  'llama-3.2-1b-preview',
   'gemma2-9b-it',
+  'gemma-7b-it',
+  'deepseek-r1-distill-llama-70b',
+  'compound-beta',
+  'custom — type below',
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -104,7 +113,8 @@ export default function Home() {
   // API / model config
   const [groqKey, setGroqKey] = useState('');
   const [showKey, setShowKey] = useState(false);
-  const [model, setModel] = useState('llama-3.1-8b-instant');
+  const [model, setModel] = useState('mixtral-8x7b-32768');
+  const [customModel, setCustomModel] = useState('');
 
   // Document store: [{filename, fileType, category, chunks:[{text,page,row}]}]
   const [docStore, setDocStore] = useState([]);
@@ -234,11 +244,13 @@ export default function Home() {
     const topChunks = bm25Search(q, filteredChunks, topK);
 
     // Lab 2 — Groq RAG answer
+    const effectiveModel = model === 'custom — type below' ? customModel.trim() : model;
+    if (!effectiveModel) { addAlert('error', 'Enter a custom model name.'); setIsAsking(false); return; }
     try {
       const res = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q, chunks: topChunks, groqKey, model }),
+        body: JSON.stringify({ question: q, chunks: topChunks, groqKey, model: effectiveModel }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'API error');
@@ -301,6 +313,18 @@ export default function Home() {
               <select value={model} onChange={e => setModel(e.target.value)}>
                 {GROQ_MODELS.map(m => <option key={m} value={m}>{m}</option>)}
               </select>
+              {model === 'custom — type below' && (
+                <input
+                  type="text"
+                  value={customModel}
+                  onChange={e => setCustomModel(e.target.value)}
+                  placeholder="e.g. llama-3.2-1b-preview"
+                  style={{ marginTop: '0.4rem' }}
+                />
+              )}
+              <div style={{ fontSize: '0.68rem', color: 'var(--muted)', marginTop: '0.3rem' }}>
+                Check available models: <a href="https://console.groq.com/docs/models" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>console.groq.com/docs/models</a>
+              </div>
             </div>
           </div>
 
