@@ -90,21 +90,26 @@ function chunkText(text, chunkSize = 800, overlap = 150) {
 // Constants
 // ─────────────────────────────────────────────────────────────────────────────
 const FILE_ICONS = { pdf: '📄', csv: '📊', txt: '📝' };
-// All known Groq models — pick whichever your account has access to
+// Groq model IDs — matches what's shown in console.groq.com/docs/models
 const GROQ_MODELS = [
-  'mixtral-8x7b-32768',
+  // ── Featured (most likely on your account) ─────────────
+  'compound-beta',               // Groq Compound (~450 tps)
+  'compound-beta-mini',          // Groq Compound Mini
+  // ── OpenAI GPT-OSS 120B on Groq ────────────────────────
+  'openai/gpt-4o',               // OpenAI GPT-OSS 120B via Groq
+  // ── Production LLaMA ───────────────────────────────────
   'llama3-8b-8192',
   'llama3-70b-8192',
-  'llama-3.1-8b-instant',
   'llama-3.3-70b-versatile',
-  'llama-3.2-3b-preview',
-  'llama-3.2-1b-preview',
+  'llama-3.1-8b-instant',
+  // ── Other production models ─────────────────────────────
+  'mixtral-8x7b-32768',
   'gemma2-9b-it',
-  'gemma-7b-it',
   'deepseek-r1-distill-llama-70b',
-  'compound-beta',
-  'custom — type below',
+  // ── Custom ─────────────────────────────────────────────
+  'custom — type below',         // Paste any model ID from your console
 ];
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Main component
@@ -113,7 +118,7 @@ export default function Home() {
   // API / model config
   const [groqKey, setGroqKey] = useState('');
   const [showKey, setShowKey] = useState(false);
-  const [model, setModel] = useState('mixtral-8x7b-32768');
+  const [model, setModel] = useState('compound-beta');
   const [customModel, setCustomModel] = useState('');
 
   // Document store: [{filename, fileType, category, chunks:[{text,page,row}]}]
