@@ -1,30 +1,39 @@
-# Environment variables — NEVER commit this
+# ── Secrets (NEVER commit) ──────────────────────────────
 .env
+.env.local
 
-# ChromaDB persistent storage (large binary files, rebuilt at runtime)
+# ── Node.js ─────────────────────────────────────────────
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── ChromaDB persistent storage ─────────────────────────
 data/chroma_db/
 
-# Python cache
+# ── Python cache ─────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 .Python
 
-# Virtual environments
+# ── Virtual environments ──────────────────────────────────
 venv/
 env/
 .venv/
 ENV/
 
-# Streamlit cache
+# ── Streamlit cache ───────────────────────────────────────
 .streamlit/
 
-# OS files
+# ── OS files ─────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 
-# IDE
+# ── IDE ───────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
